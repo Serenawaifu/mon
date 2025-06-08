@@ -1,0 +1,52 @@
+{
+  "name": "wulu",
+  "version": "1.0.0",
+  "description": "Wulu – A Static, Elegant Anime & Manga Platform for GitHub Pages",
+  "author": "Your Name <your.email@example.com>",
+  "repository": "https://github.com/your-username/wulu",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "format": "prettier --write .",
+    "lint": "eslint src --ext .js,.jsx",
+    "deploy": "gatsby build && gh-pages -d public -b gh-pages"
+  },
+  "dependencies": {
+    "@lucide/react": "^0.258.0",
+    "@walletconnect/web3-provider": "^1.9.0",
+    "ethers": "^6.10.0",
+    "firebase": "^9.23.0",
+    "framer-motion": "^11.0.0",
+    "gatsby": "^5.12.0",
+    "gatsby-plugin-google-fonts": "^1.0.3",
+    "gatsby-plugin-manifest": "^5.12.0",
+    "gatsby-plugin-postcss": "^5.12.0",
+    "gatsby-plugin-react-helmet": "^5.12.0",
+    "gatsby-plugin-react-svg": "^5.0.0",
+    "gatsby-plugin-sitemap": "^5.12.0",
+    "gatsby-plugin-gh-pages": "^1.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-query": "^3.39.0",
+    "stripe-js": "^2.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-react": "^7.33.0",
+    "gh-pages": "^6.0.0",
+    "postcss": "^8.4.25",
+    "prettier": "^3.0.3",
+    "tailwindcss": "^3.3.5"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    ">= 0.2%"
+  ]
+}
