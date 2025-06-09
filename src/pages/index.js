@@ -22,27 +22,24 @@ const dummyProducts = [
   },
 ];
 
-// Stub carousel items; replace with API data or context
-const dummyAnime = [...Array(6)].map((_, i) => (
-  <div key={i} className="bg-gray-100 rounded-xl shadow-card h-48 flex items-center justify-center text-gray-500 text-lg font-semibold select-none">
-    Anime {i + 1}
+// Dummy placeholder carousel items
+const dummyCarouselItem = (prefix, i) => (
+  <div
+    key={i}
+    className="bg-gray-100 rounded-xl shadow-card h-48 flex items-center justify-center text-gray-500 text-lg font-semibold select-none"
+  >
+    {prefix} {i + 1}
   </div>
-));
-const dummyManga = [...Array(6)].map((_, i) => (
-  <div key={i} className="bg-gray-100 rounded-xl shadow-card h-48 flex items-center justify-center text-gray-500 text-lg font-semibold select-none">
-    Manga {i + 1}
-  </div>
-));
-const dummyManhwa = [...Array(6)].map((_, i) => (
-  <div key={i} className="bg-gray-100 rounded-xl shadow-card h-48 flex items-center justify-center text-gray-500 text-lg font-semibold select-none">
-    Manhwa {i + 1}
-  </div>
-));
+);
+
+const dummyAnime = Array.from({ length: 6 }, (_, i) => dummyCarouselItem("Anime", i));
+const dummyManga = Array.from({ length: 6 }, (_, i) => dummyCarouselItem("Manga", i));
+const dummyManhwa = Array.from({ length: 6 }, (_, i) => dummyCarouselItem("Manhwa", i));
 
 export default function Home() {
   return (
     <Layout>
-      <main className="max-w-screen-xl mx-auto px-6 md:px-8 pt-20 pb-20 space-y-20">
+      <main className="max-w-screen-xl mx-auto px-6 md:px-8 pt-20 pb-20 space-y-20 bg-white">
         {/* Hero Section */}
         <section className="max-w-3xl mx-auto text-center space-y-8">
           <h1 className="text-6xl font-extrabold text-gray-900 leading-tight">
@@ -61,41 +58,39 @@ export default function Home() {
 
         {/* Anime Carousel */}
         <section aria-label="Anime Catalog" className="mt-12">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-6">
-            Anime
-          </h2>
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-6">Anime</h2>
           <Carousel>{dummyAnime}</Carousel>
         </section>
 
         {/* Manga Carousel */}
         <section aria-label="Manga Catalog" className="mt-16">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-6">
-            Manga
-          </h2>
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-6">Manga</h2>
           <Carousel>{dummyManga}</Carousel>
         </section>
 
         {/* Manhwa Carousel */}
         <section aria-label="Manhwa Catalog" className="mt-16">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-6">
-            Manhwa
-          </h2>
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-6">Manhwa</h2>
           <Carousel>{dummyManhwa}</Carousel>
         </section>
 
         {/* Marketplace Banner */}
-        <section aria-label="Marketplace" className="mt-20 bg-gray-50 p-8 rounded-xl shadow-card max-w-5xl mx-auto">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-8">
-            Marketplace
-          </h2>
+        <section
+          aria-label="Marketplace"
+          className="mt-20 bg-gray-50 p-8 rounded-xl shadow-card max-w-5xl mx-auto"
+        >
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-8">Marketplace</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {dummyProducts.map((product) => (
-              <ProductCard key={product.id} product={product} onAddToCart={() => alert(`Added ${product.title} to cart`)} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                onAddToCart={() => alert(`Added ${product.title} to cart`)}
+              />
             ))}
           </div>
         </section>
       </main>
     </Layout>
   );
-    }
-  
+          }
