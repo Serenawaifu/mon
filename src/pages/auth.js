@@ -1,3 +1,5 @@
+// src/pages/auth.js
+
 import React from "react";
 import Layout from "../components/Layout/Layout";
 import AuthForm from "../components/Auth/AuthForm";
