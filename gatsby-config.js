@@ -6,60 +6,50 @@ require("dotenv").config({
 
 /**
  * Gatsby site configuration for Wulu: Static Anime & Manga Platform
- * Follows the Minimal, Elegant Component Library UI design guidelines.
+ * Deployed to GitHub Pages via GitHub Actions with custom domain (wulu.in).
  */
 
 module.exports = {
   siteMetadata: {
     title: "Wulu – Anime & Manga Platform",
-    siteUrl: "https://your-github-username.github.io/wulu", // Set to your GitHub Pages URL
+    siteUrl: "https://wulu.in", // ✅ Use your actual domain
     description:
       "Wulu is an elegant, open anime & manga discovery platform featuring rich API integrations, community forums, and a modern UI.",
     author: "Your Name or Org",
   },
 
   plugins: [
-    // Tailwind CSS (requires postcss as well)
     `gatsby-plugin-postcss`,
-
-    // React Helmet for SEO/meta tags
     `gatsby-plugin-react-helmet`,
 
-    // Import SVG as React components (for mascot/logo, etc)
     {
       resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
-          include: /assets\/|public\//, // All SVGs in your assets/public folders
+          include: /assets\/|public\//,
         },
       },
     },
 
-    // Google Fonts - Inter for elegant typography
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `Inter:400,600,700,800`
-        ],
+        fonts: [`Inter:400,600,700,800`],
         display: "swap",
       },
     },
 
-    // Static Export Support (for GitHub Pages)
+    // ✅ Keeping gh-pages plugin, but safely configured
     {
       resolve: `gatsby-plugin-gh-pages`,
       options: {
-        // Ensures clean static output for GitHub Pages
         path: `${__dirname}/public`,
-        branch: "gh-pages",
+        branch: "gh-pages", // Not used by GitHub Actions, but fine to keep
         message: "Deploy static build via Gatsby",
-        // Use "prefixPaths" if your repo is aliased, set to true on GitHub Pages
-        prefixPaths: true,
+        prefixPaths: false, // ✅ IMPORTANT for custom domains
       },
     },
 
-    // Manifest for PWA features (theme color, favicon, etc)
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -67,22 +57,18 @@ module.exports = {
         short_name: "Wulu",
         start_url: "/",
         background_color: "#ffffff",
-        theme_color: "#0f172a", // Elegant, minimal dark blue
+        theme_color: "#0f172a",
         display: "standalone",
         icon: "public/logo.png",
       },
     },
 
-    // Sitemap for SEO
     `gatsby-plugin-sitemap`,
-
-    // Offline plugin (optional—enable if you want PWA offline cache)
-    // `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`, // optional
   ],
 
-  // Gatsby-style trailing slash: "always" | "never" | "ignore"
   trailingSlash: "always",
 
-  // Path prefix for GitHub Pages deployment (replace with your repo name)
-  pathPrefix: "/wulu",
+  // ❌ Do NOT use pathPrefix when deploying to a custom domain
+  // pathPrefix: "/wulu",
 };
