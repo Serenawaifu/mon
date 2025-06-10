@@ -1,149 +1,76 @@
-wulu/
-├── .env.example
-├── .gitignore
-├── README.md
-├── gatsby-config.js
-├── gatsby-node.js
-├── gatsby-browser.js
-├── gatsby-ssr.js
-├── package.json
-├── tailwind.config.js
-├── postcss.config.js
-├── deploy.sh
-├── public/
-│   └── mascot.svg
-│   └── logo.png
-├── src/
-│   ├── assets/
-│   │   └── themes/
-│   │       ├── retro-pixel.png
-│   │       ├── sakura-blossom.png
-│   │       ├── cyberpunk-neon.png
-│   │       ├── minimal-light.png
-│   │       └── cozy-cafe.png
-│   ├── components/
-│   │   ├── Auth/
-│   │   │   ├── AuthForm.js
-│   │   │   └── WalletConnectButton.js
-│   │   ├── Carousel/
-│   │   │   └── Carousel.js
-│   │   ├── Comments/
-│   │   │   └── CommentsSection.js
-│   │   ├── Forum/
-│   │   │   ├── ForumBoard.js
-│   │   │   ├── ForumPost.js
-│   │   │   └── RichTextEditor.js
-│   │   ├── Layout/
-│   │   │   ├── Header.js
-│   │   │   ├── Footer.js
-│   │   │   └── ThemeSwitcher.js
-│   │   ├── Marketplace/
-│   │   │   ├── Cart.js
-│   │   │   ├── Checkout.js
-│   │   │   └── ProductCard.js
-│   │   ├── Player/
-│   │   │   └── VideoPlayer.js
-│   │   ├── Reader/
-│   │   │   └── MangaReader.js
-│   │   ├── Search/
-│   │   │   └── SearchBar.js
-│   │   └── Theme/
-│   │       └── ThemeProvider.js
-│   ├── constants/
-│   │   └── themes.js
-│   ├── hooks/
-│   │   ├── useAuth.js
-│   │   ├── useAnimeAPI.js
-│   │   ├── useMangaAPI.js
-│   │   ├── useForum.js
-│   │   ├── useMarketplace.js
-│   │   └── useTheme.js
-│   ├── lib/
-│   │   ├── api/
-│   │   │   ├── anilist.js
-│   │   │   ├── anidb.js
-│   │   │   ├── kitsu.js
-│   │   │   ├── mal.js
-│   │   │   └── googleSearch.js
-│   │   ├── firebase.js
-│   │   ├── recaptcha.js
-│   │   └── stripe.js
-│   ├── pages/
-│   │   ├── _app.js
-│   │   ├── 404.js
-│   │   ├── index.js
-│   │   ├── auth.js
-│   │   ├── anime.js
-│   │   ├── manga.js
-│   │   ├── manhwa.js
-│   │   ├── anime/
-│   │   │   └── [id].js
-│   │   ├── manga/
-│   │   │   └── [id].js
-│   │   ├── manhwa/
-│   │   │   └── [id].js
-│   │   ├── forum.js
-│   │   ├── forum/
-│   │   │   └── [board].js
-│   │   ├── marketplace.js
-│   │   ├── checkout.js
-│   │   ├── reader/
-│   │   │   └── [id].js
-│   │   └── player/
-│   │       └── [id].js
-│   ├── styles/
-│   │   └── global.css
-│   └── utils/
-│       ├── format.js
-│       ├── rating.js
-│       └── scroll.js
-└── static/
-    └── favicon.ico
-Explanation of Key Folders/Files
-Top Level
-.env.example — All API keys (MAL, AniDB, AniList, Kitsu, Firebase, Google, Stripe, Razorpay, etc)
-gatsby-config.js — Gatsby config, plugins, env
-tailwind.config.js — Tailwind theme config
-deploy.sh — Static build & deploy to GitHub Pages
-src/assets/themes/
-PNG previews for each theme (used in theme switcher)
-src/components/
-Auth/ — All authentication UIs (Google, email, WalletConnect)
-Carousel/ — Horizontal scrollable carousels for anime/manga/manhwa
-Comments/ — Firestore-backed comments section
-Forum/ — Reddit-style forum, posts, rich text editor
-Layout/ — Header, footer, theme switcher, mascot overlay, etc
-Marketplace/ — Product cards, cart, checkout
-Player/ — Video player (HLS.js/Video.js)
-Reader/ — Infinite-scroll manga reader
-Search/ — Global search bar
-Theme/ — ThemeProvider, context, etc
-src/constants/
-themes.js — Theme definitions (colors, names, etc)
-src/hooks/
-Custom React hooks for auth, APIs, forum, marketplace, theme, etc
-src/lib/api/
-anilist.js — AniList GraphQL API wrapper
-anidb.js — AniDB HTTP API wrapper
-kitsu.js — Kitsu API wrapper
-mal.js — MyAnimeList REST API wrapper
-googleSearch.js — Google Custom Search for cover art
-Each API module exports functions that return fallback/empty data if API is not configured or fails
-src/lib/
-firebase.js — Firebase init, auth, Firestore utils
-recaptcha.js — reCAPTCHA v3 integration
-stripe.js — Stripe.js integration
-src/pages/
-index.js — Homepage: hero, carousels, mascot, etc
-auth.js — Authentication page
-anime.js, manga.js, manhwa.js — Catalog pages
-anime/[id].js, manga/[id].js, manhwa/[id].js — Detail pages
-forum.js, forum/[board].js — Forum main and board pages
-marketplace.js, checkout.js — Marketplace and checkout
-reader/[id].js — Manga reader
-player/[id].js — Video player
-src/styles/
-global.css — Tailwind base + custom styles
-src/utils/
-Utility functions (formatting, rating, scroll, etc)
-    
+# Wulu
+
+A Static Anime & Manga Platform — built with Gatsby, Tailwind CSS, and Firebase, ready to deploy on GitHub Pages with custom domain support.
+
+---
+
+## Overview
+
+Wulu is an elegant, minimal anime and manga discovery platform designed for fans and collectors.  
+It features:
+
+- Production-quality static Gatsby site optimized for GitHub Pages  
+- Clean, responsive UI with **Minimal, Elegant Component Library UI** design principles  
+- Authentication with Firebase (Google, Email/Password, Web3 WalletConnect)  
+- Rich API integrations (AniList, MyAnimeList, AniDB, Kitsu, Google Custom Search)  
+- Interactive carousels for Anime, Manga, and Manhwa  
+- Reddit-style forums backed by Firestore with real-time updates  
+- Fully featured marketplace supporting Stripe, Ethers.js, and Razorpay payments  
+- Infinite-scroll manga reader and HLS/Mp4 video player  
+- Theme switcher with 5 AI-generated gorgeous themes  
+- Dark/light mode toggle and accessible, semantic markup  
+- Fully static export with custom domain support
+
+---
+
+## Live Demo
+
+[https://wulu.in](https://wulu.in) *(Your deployed custom domain here)*
+
+---
+
+## Features
+
+- **Modern, accessible design:** Light backgrounds, bold headlines, neutral gray text, generous spacing, subtle shadows  
+- **Sticky header with intuitive navigation & CTA buttons** for seamless browsing  
+- **Authentication Flows:** Google OAuth, Email/Password, and Web3 WalletConnect  
+- **API-Powered Content:** Real-time search, detailed anime/manga/manhwa info, cover art from Google Custom Search  
+- **Community Forums:** Real-time Firestore-backed discussions, rich text editing, image/file uploads  
+- **Marketplace:** Owner product listings, client-side cart, multiple payment options  
+- **Reader & Player:** Manga infinite scroll reading, video streaming with custom player  
+- **Theming:** 5 beautiful themes, theme persistence, dark mode support  
+- **Performance Optimized:** Static site generation, lazy loading, responsive components, Core Web Vitals friendly
+
+---
+
+## Technologies
+
+- **Framework:** Gatsby (React-based Static Site Generator)  
+- **Styling:** Tailwind CSS with utility-first approach, custom global styles  
+- **Authentication & Database:** Firebase Authentication & Firestore  
+- **API Integrations:** AniList (GraphQL), MyAnimeList (REST), AniDB (HTTP), Kitsu.app API, Google Custom Search  
+- **Video Playback:** Video.js, HLS.js  
+- **State Management & Data Fetching:** React Query  
+- **Payments:** Stripe.js, Ethers.js (Web3), Razorpay UPI  
+- **Icons & Animations:** lucide-react icons, Framer Motion for smooth transitions  
+- **Deployment:** GitHub Pages with custom domain support
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js v16 or later  
+- Git  
+- Firebase account with a project created  
+- API keys for AniList, MyAnimeList, AniDB, Kitsu, Google Custom Search  
+- Stripe, Razorpay credentials if using payments  
+- Custom domain (`wulu.in`) DNS access
+
+### Installation
+
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/your-username/wulu.git
+   cd wulu
