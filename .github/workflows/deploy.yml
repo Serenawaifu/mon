@@ -3,13 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # or your main branch name
-  pull_request:
-    branches:
-      - main  # or your main branch name
-  workflow_dispatch:  # Allows manual triggering
+      - main
+  workflow_dispatch:
 
-# Permissions to allow the workflow to read and write content and manage GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -26,8 +22,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Needed to fetch history for lastmod
 
       - name: Detect Package Manager
         id: detect-package-manager
@@ -36,17 +30,14 @@ jobs:
             echo "manager=yarn" >> $GITHUB_OUTPUT
             echo "command=install" >> $GITHUB_OUTPUT
             echo "runner=yarn" >> $GITHUB_OUTPUT
-            exit 0
           elif [ -f "${{ github.workspace }}/package-lock.json" ]; then
             echo "manager=npm" >> $GITHUB_OUTPUT
             echo "command=ci" >> $GITHUB_OUTPUT
             echo "runner=npm run" >> $GITHUB_OUTPUT
-            exit 0
           elif [ -f "${{ github.workspace }}/pnpm-lock.yaml" ]; then
             echo "manager=pnpm" >> $GITHUB_OUTPUT
             echo "command=install --frozen-lockfile" >> $GITHUB_OUTPUT
             echo "runner=pnpm" >> $GITHUB_OUTPUT
-            exit 0
           else
             echo "Unable to determine package manager"
             exit 1
@@ -55,33 +46,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Or your preferred Node.js version
+          node-version: '20'
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-          cache-dependency-path: ${{ github.workspace }}/package-lock.json # or yarn.lock
 
       - name: Install Dependencies
-        shell: bash
-        run: ${{ steps.detect-package-manager.outputs.runner }} ${{ steps.detect-package-manager.outputs.command }}
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
-      - name: Gatsby Build  # Adjust command based on your site
-        shell: bash
-        run: ${{ steps.detect-package-manager.outputs.runner }} build
+      - name: Build with Gatsby
         env:
           CI: true
-          # Add any environment variables your build process needs here
-          # API_KEY: ${{ secrets.API_KEY }}
+        run: ${{ steps.detect-package-manager.outputs.runner }} build
 
-      - name: Generate Sitemap  # Optional: If you use a sitemap
-        shell: bash
-        run: ${{ steps.detect-package-manager.outputs.runner }} generate-sitemap # or your sitemap generation command
-
-      - name: Copy CNAME  # Ensure CNAME is in the right place
-        run: cp CNAME public/
-
-      - name: Upload Artifacts
+      - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public  # or your build output directory
+          path: ./public
 
   deploy:
     name: Deploy to GitHub Pages
