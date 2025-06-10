@@ -6,6 +6,7 @@
   "repository": "https://github.com/Serenawaifu/mon",
   "license": "MIT",
   "private": false,
+  "homepage": "https://wulu.in",
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
