@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import {
-  LogIn,
-  LogOut,
-  Mail,
-  ShieldCheck,
-  Wallet,
-  Loader2,
-} from "lucide-react";
+  AiOutlineLogin as LogIn,
+  AiOutlineLogout as LogOut,
+  AiOutlineMail as Mail,
+  AiOutlineShield as ShieldCheck,
+  AiOutlineWallet as Wallet,
+  AiOutlineLoading as Loader2,
+} from "react-icons/ai"; // Updated imports
 import { motion, AnimatePresence } from "framer-motion";
 
 // Import your Firebase auth helpers (assumed)
@@ -276,5 +276,4 @@ export default function AuthForm() {
       </AnimatePresence>
     </div>
   );
-                                            }
-                  
+}
