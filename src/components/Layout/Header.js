@@ -1,7 +1,7 @@
 // src/components/Layout/Header.js
 
 import React from "react";
-import { Menu } from "lucide-react";
+import { AiOutlineMenu } from "react-icons/ai"; // Replace Lucide Menu with React Icons
 import { Link } from "gatsby";
 
 export default function Header({ onOpenThemeSwitcher }) {
@@ -54,7 +54,7 @@ export default function Header({ onOpenThemeSwitcher }) {
             className="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors"
             title="Select Theme"
           >
-            <Menu className="w-6 h-6 text-gray-700" />
+            <AiOutlineMenu className="w-6 h-6 text-gray-700" /> {/* Updated Icon */}
           </button>
 
           {/* CTA Button (visible desktop only) */}
@@ -68,5 +68,4 @@ export default function Header({ onOpenThemeSwitcher }) {
       </div>
     </header>
   );
-          }
-              
+}
