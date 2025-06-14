@@ -1,6 +1,6 @@
 # Wulu
 
-A Static Anime & Manga Platform — built with Gatsby, Tailwind CSS, and Firebase, ready to deploy on GitHub Pages with custom domain support.
+A Anime & Manga Platform — built with Gatsby, Tailwind CSS, and Firebase, ready to deploy on GitHub Pages with custom domain support.
 
 ---
 
@@ -52,7 +52,7 @@ It features:
 - **Video Playback:** Video.js, HLS.js  
 - **State Management & Data Fetching:** React Query  
 - **Payments:** Stripe.js, Ethers.js (Web3), Razorpay UPI  
-- **Icons & Animations:** lucide-react icons, Framer Motion for smooth transitions  
+- **Icons & Animations:** react-icons, Framer Motion for smooth transitions  
 - **Deployment:** GitHub Pages with custom domain support
 
 ---
@@ -72,5 +72,5 @@ It features:
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/your-username/wulu.git
+   git clone [https://github.com/Serenawaifu/mon.git]
    cd wulu
