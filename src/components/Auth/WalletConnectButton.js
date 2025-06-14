@@ -1,7 +1,7 @@
 // src/components/Auth/WalletConnectButton.js
 
 import React, { useState } from "react";
-import { Wallet, Loader2, AlertCircle } from "lucide-react";
+import { FaWallet, FaCircleNotch, FaExclamationCircle } from "react-icons/fa"; // Import react-icons
 import PropTypes from "prop-types";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { ethers } from "ethers";
@@ -41,9 +41,9 @@ export default function WalletConnectButton({ onConnect }) {
         className="w-full inline-flex items-center justify-center gap-3 py-3 rounded-lg border border-gray-200 bg-gray-100 text-gray-900 font-semibold text-lg shadow-sm hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-1"
       >
         {loading ? (
-          <Loader2 className="animate-spin w-5 h-5" />
+          <FaCircleNotch className="animate-spin w-5 h-5" />
         ) : (
-          <Wallet className="w-5 h-5" />
+          <FaWallet className="w-5 h-5" />
         )}
         {loading ? "Connecting..." : "Connect with WalletConnect"}
       </button>
@@ -52,7 +52,7 @@ export default function WalletConnectButton({ onConnect }) {
           role="alert"
           className="mt-2 flex items-center gap-2 text-red-600 text-sm font-medium"
         >
-          <AlertCircle className="w-4 h-4" />
+          <FaExclamationCircle className="w-4 h-4" />
           {error}
         </div>
       )}
