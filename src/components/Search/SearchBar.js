@@ -1,7 +1,7 @@
 // src/components/Search/SearchBar.js
 
 import React, { useState, useEffect, useRef } from "react";
-import { Search } from "lucide-react";
+import { FaSearch } from "react-icons/fa"; // Changed from lucide-react to react-icons
 
 export default function SearchBar({ placeholder = "Search anime, manga, manhwaâ€¦" , onSearch }) {
   const [query, setQuery] = useState("");
@@ -73,7 +73,7 @@ export default function SearchBar({ placeholder = "Search anime, manga, manhwaâ€
             aria-label="Search"
             className="px-4 py-3 bg-black rounded-r-xl text-white font-semibold text-base hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 transition"
           >
-            <Search className="w-5 h-5" />
+            <FaSearch className="w-5 h-5" /> {/* Changed the icon */}
           </button>
         </div>
       </form>
@@ -105,5 +105,4 @@ export default function SearchBar({ placeholder = "Search anime, manga, manhwaâ€
       )}
     </div>
   );
-    }
-    
+}
