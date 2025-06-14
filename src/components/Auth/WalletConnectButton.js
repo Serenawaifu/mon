@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { FaWallet, FaCircleNotch, FaExclamationCircle } from "react-icons/fa"; // Import react-icons
 import PropTypes from "prop-types";
-import WalletConnectProvider from "@walletconnect/web3-provider";
+import EthereumProvider from "@walletconnect/ethereum-provider";
 import { ethers } from "ethers";
 
 export default function WalletConnectButton({ onConnect }) {
