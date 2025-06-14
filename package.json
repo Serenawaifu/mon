@@ -21,7 +21,7 @@
     "ethers": "^6.10.0",
     "firebase": "^9.23.0",
     "framer-motion": "^11.0.0",
-    "next": "^13.0.0",  // Ensure you have the correct version of Next.js
+    "next": "^13.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.0",
