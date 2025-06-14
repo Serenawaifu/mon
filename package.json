@@ -16,7 +16,7 @@
     "deploy": "next build && next export"
   },
   "dependencies": {
-    "@lucide/react": "^latest",
+    "@lucide/react": "^0.367.0",
     "@walletconnect/web3-provider": "^1.9.0",
     "ethers": "^6.10.0",
     "firebase": "^9.23.0",
