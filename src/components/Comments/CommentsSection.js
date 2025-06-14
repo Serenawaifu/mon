@@ -1,7 +1,7 @@
 // src/components/Comments/CommentsSection.js
 
 import React, { useState, useEffect } from "react";
-import { ShieldCheck, Loader2 } from "lucide-react";
+import { FaShieldAlt, FaSpinner } from "react-icons/fa"; // Importing icons from react-icons
 import PropTypes from "prop-types";
 
 /**
@@ -18,7 +18,7 @@ export default function CommentsSection({ comments, loading }) {
 
       {loading ? (
         <div className="flex justify-center py-16">
-          <Loader2 className="animate-spin w-10 h-10 text-gray-500" aria-label="Loading comments" />
+          <FaSpinner className="animate-spin w-10 h-10 text-gray-500" aria-label="Loading comments" />
         </div>
       ) : !comments || comments.length === 0 ? (
         <p className="text-gray-600 italic text-lg">Be the first to comment!</p>
@@ -71,4 +71,3 @@ CommentsSection.defaultProps = {
   comments: [],
   loading: false,
 };
-        
