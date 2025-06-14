@@ -1,7 +1,5 @@
-// src/components/Carousel/Carousel.js
-
 import React, { useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { MdChevronLeft, MdChevronRight } from "react-icons/md"; // Updated import
 
 export default function Carousel({ children, title, className = "" }) {
   const containerRef = useRef(null);
@@ -27,14 +25,14 @@ export default function Carousel({ children, title, className = "" }) {
           onClick={() => scroll("left")}
           className="absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition z-10"
         >
-          <ChevronLeft className="w-6 h-6 text-gray-700" />
+          <MdChevronLeft className="w-6 h-6 text-gray-700" /> {/* Updated icon */}
         </button>
         <button
           aria-label="Scroll right"
           onClick={() => scroll("right")}
           className="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition z-10"
         >
-          <ChevronRight className="w-6 h-6 text-gray-700" />
+          <MdChevronRight className="w-6 h-6 text-gray-700" /> {/* Updated icon */}
         </button>
 
         {/* Scrollable carousel container */}
