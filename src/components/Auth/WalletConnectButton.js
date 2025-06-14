@@ -16,7 +16,7 @@ export default function WalletConnectButton({ onConnect }) {
     try {
       const provider = new WalletConnectProvider({
         rpc: {
-          1: "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID", // Replace with your Infura ID or other RPC
+          1: "https://mainnet.infura.io/v3/29513fcbadc6c860553ef2b4d558c063", // Replace with your Infura ID or other RPC
         },
       });
       await provider.enable();
