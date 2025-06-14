@@ -2,7 +2,7 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import { Trash2 } from "lucide-react";
+import { FaTrash } from "react-icons/fa"; // Update this import
 
 export default function Cart({ items, onRemoveItem, onCheckout }) {
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -28,7 +28,7 @@ export default function Cart({ items, onRemoveItem, onCheckout }) {
                 aria-label={`Remove ${title} from cart`}
                 className="text-gray-400 hover:text-red-600 transition-colors focus:outline-none"
               >
-                <Trash2 className="w-5 h-5" />
+                <FaTrash className="w-5 h-5" /> {/* Updated here */}
               </button>
             </li>
           ))}
@@ -71,4 +71,3 @@ Cart.propTypes = {
 Cart.defaultProps = {
   items: [],
 };
-                  
