@@ -1,5 +1,3 @@
-// src/components/Auth/AuthForm.js
-
 import React, { useState, useEffect } from "react";
 import {
   AiOutlineLogin as LogIn,
@@ -39,13 +37,13 @@ export default function AuthForm() {
   const [password, setPassword] = useState("");
   const [mode, setMode] = useState("login"); // 'login' or 'signup'
   const [error, setError] = useState("");
-  const [user, setUser] = useState(null);
+  const [user, setUser ] = useState(null);
   const [loading, setLoading] = useState(false);
 
   // Listen to auth state changes
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
-      setUser(firebaseUser);
+    const unsubscribe = auth.onAuthStateChanged((firebaseUser ) => {
+      setUser (firebaseUser );
       setError("");
       setLoading(false);
     });
@@ -124,7 +122,7 @@ export default function AuthForm() {
           >
             <div className="text-2xl font-extrabold text-gray-900 flex items-center gap-2 mb-4">
               <ShieldCheck className="w-6 h-6 text-green-600" />
-              Welcome, {user.displayName || user.email || "User"}!
+              Welcome, {user.displayName || user.email || "User "}!
             </div>
             <p className="text-gray-600 mb-8">
               You’re signed in to Wulu. Enjoy exploring anime & manga!
@@ -276,4 +274,5 @@ export default function AuthForm() {
       </AnimatePresence>
     </div>
   );
-}
+              }
+                  
