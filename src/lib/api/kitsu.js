@@ -1,7 +1,7 @@
 const KITSU_API = "https://kitsu.io/api/edge";
 
-const KITSU_CLIENT_ID = process.env.GATSBY_KITSU_CLIENT_ID || null;
-const KITSU_CLIENT_SECRET = process.env.GATSBY_KITSU_CLIENT_SECRET || null;
+const KITSU_CLIENT_ID = process.env.NEXT_PUBLIC_KITSU_CLIENT_ID || null; // Updated for Next.js
+const KITSU_CLIENT_SECRET = process.env.NEXT_PUBLIC_KITSU_CLIENT_SECRET || null; // Updated for Next.js
 
 export async function fetchKitsu(resource, params = {}) {
   if (!KITSU_CLIENT_ID) {
