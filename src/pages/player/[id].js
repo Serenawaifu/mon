@@ -1,13 +1,13 @@
-// src/pages/player/[id].js
-
 import React, { useEffect, useState } from "react";
-import { useParams } from "@reach/router";
+import { useRouter } from "next/router"; // Use Next.js router
 import Layout from "../../components/Layout/Layout";
 import VideoPlayer from "../../components/Player/VideoPlayer";
 import { getDocData } from "../../lib/firebase";
 
 export default function VideoPlayerPage() {
-  const { id } = useParams();
+  const router = useRouter();
+  const { id } = router.query; // Get dynamic route param
+
   const [videoUrl, setVideoUrl] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -44,4 +44,4 @@ export default function VideoPlayerPage() {
       </main>
     </Layout>
   );
-}
+    }
