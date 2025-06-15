@@ -1,6 +1,6 @@
 const MAL_API_BASE = "https://api.myanimelist.net/v2";
 
-const MAL_CLIENT_ID = process.env.GATSBY_MAL_CLIENT_ID || null;
+const MAL_CLIENT_ID = process.env.NEXT_PUBLIC_MAL_CLIENT_ID || null; // Updated for Next.js
 
 export async function fetchMAL(resource, params = {}) {
   if (!MAL_CLIENT_ID) {
