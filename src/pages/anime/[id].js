@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import CommentsSection from "../../components/Comments/CommentsSection";
-import { useRouter } from "next/router"; // Updated import
+import { useRouter } from "next/router"; // Use Next.js router
 import { fetchAniList } from "../../lib/api/anilist";
 
 export default function AnimeDetailPage() {
   const router = useRouter();
-  const { id } = router.query; // Updated to use Next.js router
+  const { id } = router.query; // Get dynamic route param
+
   const [anime, setAnime] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -89,4 +90,4 @@ export default function AnimeDetailPage() {
     </Layout>
   );
                       }
-                      
+                  
