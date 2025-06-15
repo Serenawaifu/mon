@@ -1,20 +1,20 @@
-// src/pages/forum/[board].js
-
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "@reach/router";
+import { useRouter } from "next/router";
+import Link from "next/link";
 import Layout from "../../components/Layout/Layout";
 import ForumBoard from "../../components/Forum/ForumBoard";
 import { db } from "../../lib/firebase";
 import {
   collection,
   query,
-  where,
   orderBy,
   onSnapshot,
 } from "firebase/firestore";
 
 export default function ForumBoardPage() {
-  const { board } = useParams();
+  const router = useRouter();
+  const { board } = router.query;
+
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -52,7 +52,7 @@ export default function ForumBoardPage() {
         </h1>
 
         <Link
-          to="/forum"
+          href="/forum"
           className="text-sm text-gray-600 hover:text-gray-900 transition mb-8 inline-block"
         >
           ← Back to Forum overview
@@ -80,7 +80,7 @@ export default function ForumBoardPage() {
                 className="p-6 rounded-lg bg-gray-50 shadow-sm hover:shadow-md transition-shadow"
               >
                 <Link
-                  to={`/forum/post/${id}`}
+                  href={`/forum/post/${id}`}
                   className="block"
                   aria-label={`View post titled ${title}`}
                 >
@@ -93,11 +93,13 @@ export default function ForumBoardPage() {
                     Posted by <strong>{author}</strong>
                   </span>
                   <span>
-                    {new Date(createdAt).toLocaleDateString(undefined, {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
+                    {createdAt
+                      ? new Date(createdAt).toLocaleDateString(undefined, {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })
+                      : ""}
                   </span>
                   <span>{commentCount ?? 0} comments</span>
                 </div>
@@ -108,5 +110,4 @@ export default function ForumBoardPage() {
       </main>
     </Layout>
   );
-          }
-          
+                    }
