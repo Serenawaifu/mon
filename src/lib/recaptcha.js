@@ -1,4 +1,4 @@
-const RECAPTCHA_SITE_KEY = process.env.GATSBY_RECAPTCHA_SITE_KEY || null;
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || null; // Updated for Next.js
 
 /**
  * Dynamically load the reCAPTCHA v3 script if not loaded yet.
