@@ -4,7 +4,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
-  createUser WithEmailAndPassword,
+  createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
@@ -84,7 +84,7 @@ export async function loginWithEmail(email, password) {
  */
 export async function signupWithEmail(email, password) {
   if (!auth) throw new Error("Firebase Authentication is not initialized.");
-  return createUser WithEmailAndPassword(auth, email, password);
+  return createUserWithEmailAndPassword(auth, email, password);
 }
 
 /**
