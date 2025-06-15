@@ -2,8 +2,10 @@
 module.exports = {
   // Scan all relevant source files for class names for purging unused styles
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // Gatsby source files
-    "./public/index.html"
+    "./src/**/*.{js,jsx,ts,tsx}", // Next.js source files
+    "./pages/**/*.{js,jsx,ts,tsx}", // Include pages directory
+    "./components/**/*.{js,jsx,ts,tsx}", // Include components directory
+    "./public/index.html" // If you have any static HTML files
   ],
   theme: {
     extend: {
@@ -46,7 +48,7 @@ module.exports = {
       boxShadow: {
         // Light shadows for subtle elevation
         'card': '0 1px 3px rgba(0,0,0,0.1)',
-        'card-md': '0 4px 6px rgba(0,0,0,0.1)'
+        'card-md': '0 4px 6px rgba(0,0,0,0.1)',
       },
       transitionProperty: {
         // Smooth transitions for hover effects
