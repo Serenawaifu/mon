@@ -1,5 +1,3 @@
-// src/utils/format.js
-
 /**
  * Formats a given date or timestamp into a localized, human-readable date string.
  *
@@ -29,7 +27,7 @@ export function formatDate(input, options = {}) {
  *
  * Design & UX:
  * - Prevents overflow and improves readability in UI cards or previews.
- * - Preserves wholes words where possible (cutoff is hard).
+ * - Preserves whole words where possible (cutoff is hard).
  *
  * @param {string} text The input text to truncate
  * @param {number} [maxLength=100] Maximum length before truncation
