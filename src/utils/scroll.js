@@ -1,5 +1,3 @@
-// src/utils/scroll.js
-
 /**
  * Smoothly scrolls the viewport to a specific element by its ID.
  *
