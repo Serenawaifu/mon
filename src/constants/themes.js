@@ -1,5 +1,3 @@
-// src/constants/themes.js
-
 /**
  * Theme metadata array for Wulu app, following the Minimal, Elegant Component Library UI style.
  *
