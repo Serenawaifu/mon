@@ -1,5 +1,3 @@
-// src/utils/rating.js
-
 /**
  * Converts a numeric score (0–100) into a star rating scale (0–5), rounded to the nearest half star.
  *
@@ -11,7 +9,7 @@
  * @returns {number} Star rating from 0 to 5 (e.g., 4.5)
  */
 export function scoreToStars(score) {
-  if (typeof score !== "number" || score <= 0) return 0;
+  if (typeof score !== "number" || score < 0) return 0;
   if (score > 100) score = 100;
   return Math.round((score / 100) * 10) / 2;
 }
