@@ -9,16 +9,19 @@ set -euo pipefail
 
 echo "🛠 Building the Wulu site for production..."
 
-# Clean previous Gatsby cache/output to avoid stale data
+# Clean previous Next.js build output to avoid stale data
 npm run clean
 
-# Build Gatsby static site
+# Build Next.js static site
 npm run build
+
+# Export the Next.js site to static HTML
+npm run export
 
 echo "🚀 Deploying built site to GitHub Pages..."
 
-# Push the contents of the /public directory to the gh-pages branch
+# Push the contents of the /out directory to the gh-pages branch
 # Requires gh-pages package installed (already in package.json)
-npx gh-pages -d public -b gh-pages -m "chore: deploy Wulu static build $(date '+%Y-%m-%d %H:%M:%S')"
+npx gh-pages -d out -b gh-pages -m "chore: deploy Wulu static build $(date '+%Y-%m-%d %H:%M:%S')"
 
 echo "✅ Deploy complete! Your site should be live shortly if GitHub Pages is configured."
