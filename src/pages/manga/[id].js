@@ -1,13 +1,12 @@
-// src/pages/manga/[id].js
-
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import CommentsSection from "../../components/Comments/CommentsSection";
-import { useParams } from "@reach/router";
+import { useRouter } from "next/router"; // Updated import
 import { fetchAniList } from "../../lib/api/anilist";
 
 export default function MangaDetailPage() {
-  const { id } = useParams();
+  const router = useRouter();
+  const { id } = router.query; // Updated to use Next.js router
   const [manga, setManga] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
