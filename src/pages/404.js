@@ -1,7 +1,5 @@
-// src/pages/404.js
-
 import React from "react";
-import { Link } from "gatsby";
+import Link from "next/link"; // Use Next.js Link component
 
 export default function NotFoundPage() {
   return (
@@ -12,11 +10,10 @@ export default function NotFoundPage() {
       <p className="text-gray-600 text-xl max-w-lg mb-8 text-center" role="alert">
         The page you are looking for does not exist or has been moved.
       </p>
-      <Link
-        to="/"
-        className="inline-block px-8 py-4 bg-black text-white font-bold rounded-lg shadow-md hover:bg-gray-900 transition"
-      >
-        Go Home
+      <Link href="/">
+        <a className="inline-block px-8 py-4 bg-black text-white font-bold rounded-lg shadow-md hover:bg-gray-900 transition">
+          Go Home
+        </a>
       </Link>
     </main>
   );
