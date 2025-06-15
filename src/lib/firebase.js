@@ -1,12 +1,10 @@
-// src/lib/firebase.js
-
 import { initializeApp, getApps, getApp } from "firebase/app";
 import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
+  createUser WithEmailAndPassword,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
@@ -22,22 +20,23 @@ import {
   query,
   where,
   orderBy,
+  limit,
   getDocs,
   onSnapshot,
 } from "firebase/firestore";
 
 /**
  * Firebase configuration using environment variables for security.
- * All keys are prefixed with GATSBY_ to be accessible within Gatsby.
+ * All keys are prefixed with NEXT_PUBLIC_ to be accessible within Next.js.
  */
 const firebaseConfig = {
-  apiKey: process.env.GATSBY_FIREBASE_API_KEY,
-  authDomain: process.env.GATSBY_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.GATSBY_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.GATSBY_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.GATSBY_FIREBASE_APP_ID,
-  measurementId: process.env.GATSBY_FIREBASE_MEASUREMENT_ID,
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase app safely, avoiding duplicate initialization in SSR environments
@@ -52,7 +51,7 @@ export const googleProvider = new GoogleAuthProvider();
 
 /**
  * Listener for authentication state changes.
- * @param {(user: import('firebase/auth').User|null) => void} callback 
+ * @param {(user: import('firebase/auth').User |null) => void} callback 
  * @returns {() => void} unsubscribe function
  */
 export function subscribeAuth(callback) {
@@ -85,7 +84,7 @@ export async function loginWithEmail(email, password) {
  */
 export async function signupWithEmail(email, password) {
   if (!auth) throw new Error("Firebase Authentication is not initialized.");
-  return createUserWithEmailAndPassword(auth, email, password);
+  return createUser WithEmailAndPassword(auth, email, password);
 }
 
 /**
@@ -201,4 +200,4 @@ export function subscribeCollection(path, onUpdate, filters = [], order = []) {
   });
 
   return unsubscribe;
-  }
+}
