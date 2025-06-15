@@ -1,7 +1,7 @@
 const ANIDB_API = "https://api.anidb.net/api";
 
-const ANIDB_USERNAME = process.env.GATSBY_ANIDB_USERNAME;
-const ANIDB_PASSWORD = process.env.GATSBY_ANIDB_PASSWORD;
+const ANIDB_USERNAME = process.env.NEXT_PUBLIC_ANIDB_USERNAME; // Updated for Next.js
+const ANIDB_PASSWORD = process.env.NEXT_PUBLIC_ANIDB_PASSWORD; // Updated for Next.js
 
 export async function fetchAniDB(queryParams) {
   if (!ANIDB_USERNAME || !ANIDB_PASSWORD) {
