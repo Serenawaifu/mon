@@ -1,10 +1,12 @@
-// src/pages/auth.js
-
 import React from "react";
 import Layout from "../components/Layout/Layout";
 import AuthForm from "../components/Auth/AuthForm";
 import WalletConnectButton from "../components/Auth/WalletConnectButton";
 
+/**
+ * Authentication Page
+ * This page allows users to authenticate using WalletConnect and a form.
+ */
 export default function AuthPage() {
   return (
     <Layout>
