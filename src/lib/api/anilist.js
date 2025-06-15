@@ -7,7 +7,7 @@ const ANILIST_API = "https://graphql.anilist.co";
  * @returns {Promise<object>} API response data or error structure
  */
 export async function fetchAniList(query, variables = {}) {
-  if (!process.env.GATSBY_ANILIST_CLIENT_ID) {
+  if (!process.env.NEXT_PUBLIC_ANILIST_CLIENT_ID) { // Updated for Next.js
     return { data: null, error: "AniList API not configured" };
   }
 
