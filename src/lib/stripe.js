@@ -1,10 +1,13 @@
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLIC_KEY);
+// Load Stripe with the public key from environment variables
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 /**
- * Initiate Stripe checkout session by redirecting user.
- * @param {string} sessionId
+ * Initiates a Stripe checkout session by redirecting the user.
+ *
+ * @param {string} sessionId - The ID of the Stripe checkout session.
+ * @throws Will throw an error if Stripe.js fails to load or if there is an error during checkout.
  */
 export async function redirectToCheckout(sessionId) {
   const stripe = await stripePromise;
