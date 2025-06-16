@@ -29,6 +29,8 @@
     "react-query": "^3.39.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
     "autoprefixer": "^10.4.14",
     "cssnano": "^7.0.6",
     "eslint": "^8.44.0",
