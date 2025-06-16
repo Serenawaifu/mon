@@ -3,10 +3,10 @@ import {
   AiOutlineLogin as LogIn,
   AiOutlineLogout as LogOut,
   AiOutlineMail as Mail,
-  AiOutlineShield as ShieldCheck,
+  AiFillSafetyCertificate as ShieldCheck, // <-- FIXED: valid icon
   AiOutlineWallet as Wallet,
   AiOutlineLoading as Loader2,
-} from "react-icons/ai"; // Updated imports
+} from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Import your Firebase auth helpers (assumed)
@@ -37,13 +37,13 @@ export default function AuthForm() {
   const [password, setPassword] = useState("");
   const [mode, setMode] = useState("login"); // 'login' or 'signup'
   const [error, setError] = useState("");
-  const [user, setUser ] = useState(null);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
 
   // Listen to auth state changes
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((firebaseUser ) => {
-      setUser (firebaseUser );
+    const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
+      setUser(firebaseUser);
       setError("");
       setLoading(false);
     });
@@ -274,5 +274,4 @@ export default function AuthForm() {
       </AnimatePresence>
     </div>
   );
-              }
-                  
+}
